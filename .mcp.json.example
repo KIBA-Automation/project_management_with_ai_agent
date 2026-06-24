@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "plane": {
+      "type": "http",
+      "url": "https://plane.bit-habit.com/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_PLANE_API_TOKEN",
+        "X-Workspace-Slug": "kiba"
+      }
+    }
+  }
+}

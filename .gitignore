@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────────────────────
+# Meeting notes are PRIVATE and must never be published.
+# Drop raw .txt transcripts into meetings/ — they stay local only.
+# ─────────────────────────────────────────────────────────────
+meetings/*
+!meetings/.gitkeep
+!meetings/README.md
+
+# Any stray transcripts anywhere in the tree
+*.meeting.txt
+transcripts/
+notes/
+
+# Secrets / live config (publish only the *.example versions)
+.env
+.env.*
+!.env.example
+.mcp.json
+!.mcp.json.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
