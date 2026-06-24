@@ -57,6 +57,52 @@ workflow** built on the Model Context Protocol.
 
 ---
 
+## Worked example
+
+A real reconciliation run, anonymized. The agent had read a daily‑standup
+transcript and the live board (8 work items across Backlog / Todo / In Progress).
+
+**1 — Agent proposes a change set** (nothing is written yet):
+
+```
+📋 Proposed changes — 2025-xx-xx standup → <project>
+
+✅ High confidence
+[1] TASK-8  "<cost-analysis task>"      Backlog → Todo
+    ↳ source: "...we'll start discussing this from the next meeting"
+[2] TASK-7  "<expense-automation task>" Backlog → Todo
+    ↳ source: "...calculate it and report back in 24 hours"
+[3] TASK-2  "<licensing task>"          + comment (reviewer feedback)
+    ↳ source: "...the direction is wrong, requirements need re-checking first"
+
+⚠️ Needs clarification
+[4] New task? "<idea-queue dashboard>"  — may duplicate TASK-4. Confirm?
+
+⏸️ Held back (low confidence)
+    Priority bump on TASK-7 — not explicitly stated, won't guess.
+```
+
+**2 — Human decides:**
+
+```
+> apply 1, 2, 3.  #4 is already handled — skip it.
+```
+
+**3 — Agent applies only the approved items and reports back:**
+
+```
+✅ TASK-8  Backlog → Todo
+✅ TASK-7  Backlog → Todo
+✅ TASK-2  comment added
+   #4 skipped (per your call). No other writes.
+```
+
+Note how the agent **quotes the transcript line** behind every proposal, **flags
+ambiguity instead of guessing**, and **writes only what was approved** — the
+held‑back priority change never happened.
+
+---
+
 ## Privacy
 
 **Meeting notes never leave your machine.** Everything under `meetings/` is
