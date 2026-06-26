@@ -45,6 +45,18 @@ It's also a portfolio piece demonstrating an **agentic, human‑in‑the‑loop 
 
 ## How it works
 
+
+```mermaid
+flowchart LR
+  R[Read note] --> O[Observe board · gh]
+  O --> D[Diff vs live state]
+  D --> P[Propose change set]
+  P --> C{Human confirm}
+  C -- approved --> A[Apply via gh]
+  C -- reject / edit --> P
+  A --> Rep[Report + links]
+```
+
 ```
   meetings/*.txt            ┌──────────────────────┐          GitHub Projects
   (private, local only)  ─▶ │      AI agent        │ ◀──────▶ KIBA-Automation/projects/1
