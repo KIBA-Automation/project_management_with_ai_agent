@@ -106,25 +106,25 @@ flowchart LR
 
 ## Worked example
 
-A real reconciliation run, anonymized. The agent had read a daily‑standup
-transcript and the live board (8 items across Backlog / Todo / In Progress).
+A representative reconciliation run with generic tasks (the real board content stays
+private). The agent has read a daily‑standup transcript and the live board.
 
 **1 — Agent proposes a change set** (nothing is written yet):
 
 ```
-📋 Proposed changes — 2026-xx-xx standup → KIBA Automation
+📋 Proposed changes — 2026-xx-xx standup → Project board
 
 ✅ High confidence
-[1] AP-7  "출장 경비 예산 측정 (수문 사례)"   Backlog → Todo,  Priority → High
-    ↳ source: "오늘 이걸 업그레이드 시켜가지고…" (원장님)
-[2] AP-8  "수문 관련 원가 데이터 분석"          + comment (scope guardrail)
-    ↳ source: "이 수문 조사를 또 할 일은 없잖아요. 기관 하나밖에 없으니까"
+[1] "Payment retry on checkout"     Backlog → Todo,  Priority → High
+    ↳ source: "let's land the payment-retry fix before the next release"
+[2] "Search latency spike"          + comment (scope guardrail)
+    ↳ source: "we only need this patched for the launch customer, not a general rework"
 
 ⚠️ Needs clarification
-[3] New item? "기획자 영입"  — team decision, not a dev task. Confirm?
+[3] New item? "Hire a designer"  — a hiring/team decision, not a dev task. Confirm?
 
 ⏸️ Held back (low confidence)
-    Priority bump on AP-1 — not explicitly stated, won't guess.
+    Priority bump on "Email notifications" — not explicitly stated, won't guess.
 ```
 
 **2 — Human decides:**
@@ -136,8 +136,8 @@ transcript and the live board (8 items across Backlog / Todo / In Progress).
 **3 — Agent applies only the approved items and reports back:**
 
 ```
-✅ AP-7  Backlog → Todo, Priority → High
-✅ AP-8  comment added
+✅ Payment retry on checkout   Backlog → Todo, Priority → High
+✅ Search latency spike        comment added
    #3 skipped (per your call). No other writes.
 ```
 
