@@ -39,7 +39,27 @@ This project closes that gap by treating the meeting note as the source of inten
 and the GitHub Project as the source of record — and using an agent to reconcile
 the two, under human supervision.
 
-It's also a portfolio piece demonstrating an **agentic, human‑in‑the‑loop workflow**.
+---
+
+## What this demonstrates
+
+This repo doubles as a **portfolio** of how its author operates as a
+lead / forward-deployed engineer: turning messy real-world input (meeting talk) into
+**tracked, accountable work that an AI agent can safely help drive**. The artifacts
+matter more than the line count — they show *judgment*, not just code:
+
+- **Agent design with guardrails** — a human-in-the-loop contract where the agent
+  *proposes* but never writes without approval. → [`CLAUDE.md`](CLAUDE.md)
+- **Judgment, recorded** — a [**Decision Log** (ADRs)](docs/decisions/) capturing *why*
+  each major choice was made (leaving self-hosted Plane, the work model, the safety
+  contract).
+- **Standards & enablement** — a [work-modeling playbook](docs/github-projects-playbook.md)
+  defining how we shape items (draft → issue → epic) and name them on GitHub Projects.
+- **Tooling** — `gh`-based [scripts](scripts/) that drive a Projects v2 board by
+  human-readable names instead of opaque node IDs.
+
+> New here? Start with the [Decision Log](docs/decisions/) to see how decisions are
+> made, then the [playbook](docs/github-projects-playbook.md) for how work is modeled.
 
 ---
 
@@ -158,8 +178,10 @@ example config — is committed. See [`.gitignore`](.gitignore).
 ├── .gitignore             # keeps meeting notes & secrets out of git
 ├── scripts/               # gh-based board helpers (board.sh, reconcile.sh, lib.sh)
 ├── docs/
-│   ├── ARCHITECTURE.md    # data flow & design decisions
-│   └── migration.md       # why/how we moved Plane → GitHub Projects
+│   ├── ARCHITECTURE.md             # data flow & design decisions
+│   ├── migration.md                # why/how we moved Plane → GitHub Projects
+│   ├── github-projects-playbook.md # how we model & name work (draft → issue → epic)
+│   └── decisions/                  # Decision Log — ADRs (why each major choice was made)
 └── meetings/              # PRIVATE — local meeting notes live here (git-ignored)
     └── README.md
 ```
